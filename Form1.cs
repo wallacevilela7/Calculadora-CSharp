@@ -16,8 +16,8 @@ namespace Calculadora
         {
             if (textResult.Text.Length != 0)
             {
-            double inv = (-1) * double.Parse(textResult.Text);
-            textResult.Text = inv.ToString("F2");
+                double inv = (-1) * double.Parse(textResult.Text);
+                textResult.Text = inv.ToString("F2");
 
             }
             else
@@ -29,9 +29,16 @@ namespace Calculadora
 
         private void button2_Click(object sender, EventArgs e)
         {
-            String value;
-            value = textResult.Text;
-            textResult.Text = value + "0";
+            if (!InputIsAvailable(textResult.Text))
+            {
+                textResult.Text = "0";
+            }
+            else
+            {
+                String value;
+                value = textResult.Text;
+                textResult.Text = value + "0";
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -47,67 +54,146 @@ namespace Calculadora
             textResult.Text = "";
         }
 
+        private bool InputIsAvailable(string input)
+        {
+            if(input == "Digite um valor")
+            {
+                return false;
+            }
+            else if(input == "Não é possível dividir por zero")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void btn1_Click(object sender, EventArgs e)
         {
-            String value;
-            value = textResult.Text;
-            textResult.Text = value + "1";
+            if (!InputIsAvailable(textResult.Text))
+            {
+                textResult.Text = "1";
+            }
+            else
+            {
+                String value;
+                value = textResult.Text;
+                textResult.Text = value + "1";
+            }
         }
 
         private void btn2_Click(object sender, EventArgs e)
         {
-            String value;
-            value = textResult.Text;
-            textResult.Text = value + "2";
+            if (!InputIsAvailable(textResult.Text))
+            {
+                textResult.Text = "2";
+            }
+            else
+            {
+                String value;
+                value = textResult.Text;
+                textResult.Text = value + "2";
+            }
         }
 
         private void btn3_Click(object sender, EventArgs e)
         {
-            String value;
-            value = textResult.Text;
-            textResult.Text = value + "3";
+            if (!InputIsAvailable(textResult.Text))
+            {
+                textResult.Text = "3";
+            }
+            else
+            {
+                String value;
+                value = textResult.Text;
+                textResult.Text = value + "3";
+            }
         }
 
         private void btn4_Click(object sender, EventArgs e)
         {
-            String value;
-            value = textResult.Text;
-            textResult.Text = value + "4";
+            if (!InputIsAvailable(textResult.Text))
+            {
+                textResult.Text = "4";
+            }
+            else
+            {
+                String value;
+                value = textResult.Text;
+                textResult.Text = value + "4";
+            }
         }
 
         private void btn5_Click(object sender, EventArgs e)
         {
-            String value;
-            value = textResult.Text;
-            textResult.Text = value + "5";
+            if (!InputIsAvailable(textResult.Text))
+            {
+                textResult.Text = "5";
+            }
+            else
+            {
+                String value;
+                value = textResult.Text;
+                textResult.Text = value + "5";
+            }
         }
 
         private void btn6_Click(object sender, EventArgs e)
         {
-            String value;
-            value = textResult.Text;
-            textResult.Text = value + "6";
+            if (!InputIsAvailable(textResult.Text))
+            {
+                textResult.Text = "6";
+            }
+            else
+            {
+                String value;
+                value = textResult.Text;
+                textResult.Text = value + "6";
+            }
         }
 
         private void btn7_Click(object sender, EventArgs e)
         {
-            String value;
-            value = textResult.Text;
-            textResult.Text = value + "7";
+            if (!InputIsAvailable(textResult.Text))
+            {
+                textResult.Text = "7";
+            }
+            else
+            {
+                String value;
+                value = textResult.Text;
+                textResult.Text = value + "7";
+            }
         }
 
         private void btn8_Click(object sender, EventArgs e)
         {
-            String value;
-            value = textResult.Text;
-            textResult.Text = value + "8";
+            if (!InputIsAvailable(textResult.Text))
+            {
+                textResult.Text = "8";
+            }
+            else
+            {
+                String value;
+                value = textResult.Text;
+                textResult.Text = value + "8";
+            }
         }
 
         private void btn9_Click(object sender, EventArgs e)
         {
-            String value;
-            value = textResult.Text;
-            textResult.Text = value + "9";
+            if (!InputIsAvailable(textResult.Text))
+            {
+                textResult.Text = "9";
+            }
+            else
+            {
+                String value;
+                value = textResult.Text;
+                textResult.Text = value + "9";
+            }
         }
 
         private void btnPonto_Click(object sender, EventArgs e)
@@ -189,13 +275,13 @@ namespace Calculadora
             switch (op)
             {
                 case "+":
-                    textResult.Text = (v1 + v2).ToString("F2");
+                    textResult.Text = (v1 + v2).ToString();
                     break;
                 case "-":
-                    textResult.Text = (v1 - v2).ToString("F2");
+                    textResult.Text = (v1 - v2).ToString();
                     break;
                 case "*":
-                    textResult.Text = (v1 * v2).ToString("F2");
+                    textResult.Text = (v1 * v2).ToString();
                     break;
                 case "/":
                     if (v2 == 0)
@@ -205,7 +291,7 @@ namespace Calculadora
                     }
                     else
                     {
-                        textResult.Text = (v1 / v2).ToString("F2");
+                        textResult.Text = (v1 / v2).ToString();
                     }
                     break;
                 default:
@@ -225,8 +311,15 @@ namespace Calculadora
 
         private void btn1porX_Click(object sender, EventArgs e)
         {
-            double v = 1.00 / double.Parse(textResult.Text);
-            textResult.Text = v.ToString("F2");
+            if (textResult.Text == "" || textResult.Text == "Digite um valor")
+            {
+                textResult.Text = "Digite um valor";
+            }
+            else
+            {
+                double v = 1.00 / double.Parse(textResult.Text);
+                textResult.Text = v.ToString();
+            }
         }
     }
 }
